@@ -47,4 +47,12 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public User(long id, String email, String mobile, String username, String role) {
+        this.id = id;
+        this.email = email;
+        this.mobile = mobile;
+        this.username = username;
+        this.role = role;
+    }
 }

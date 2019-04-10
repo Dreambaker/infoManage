@@ -8,4 +8,8 @@
         SELECT * FROM user WHERE id = #{id}
     </select>
 
+        <insert id="addUser" parameterType="top.marching.model.User">
+            INSERT INTO  user VALUES (#{id},#{email},#{username},#{role},#{mobile})
+        </insert>
+
 </mapper>

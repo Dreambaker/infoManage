@@ -16,4 +16,9 @@ public class UserServiceImpl implements IUserService {
     public User selectUser(long userId) {
         return userDao.selectUser(userId);
     }
+
+    @Override
+    public void addUser(User user) {
+        userDao.addUser(user);
+    }
 }
