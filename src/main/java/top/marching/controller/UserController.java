@@ -2,11 +2,11 @@ package top.marching.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import top.marching.model.User;
 
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
@@ -24,11 +24,22 @@ public class UserController {
         mv.setViewName("user");
         return mv;
     }
-    @RequestMapping("/add")
-    public ModelAndView addUser(String id,String email,String mobile,String username,String role){
-            ModelAndView mv = new ModelAndView();
-            User user = new User(Long.parseLong(id), email, mobile, username, role);
-            userService.addUser(user);
-        return mv;
+
+    @RequestMapping(value = "/add" )
+    public String  addUser(){
+        return "addUser";
     }
+
+    @RequestMapping(value = "/reg" ,method = RequestMethod.POST)
+    public String  register(@ModelAttribute User user){
+        userService.addUser(user);
+        return "redirect:/user/select/";
+    }
+
+    @RequestMapping(value = "/delete")
+    public String  deleteUser(@RequestParam("id") long id){
+        userService.deleteUser(id);
+        return "addUser";
+    }
+
 }

@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Title</title>
-    <form action="/user/add">
+    <form action="/user/reg" method="post">
         <input type="text" name="id"/>
         <input type="text" name="email"/>
         <input type="text" name="username"/>

@@ -55,4 +55,7 @@ public class User {
         this.username = username;
         this.role = role;
     }
+
+    public User() {
+    }
 }

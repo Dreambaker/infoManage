@@ -7,4 +7,5 @@ public interface IUserDao {
 
     User selectUser(long id);
     void addUser(User user);
+    void deleteUser(long id);
 }
